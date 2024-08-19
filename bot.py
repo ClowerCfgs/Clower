@@ -195,11 +195,11 @@ def handle_rechazar(message):
         try:
             user_id = int(message.text.split()[1])
             tipo = message.text.split()[2]
-            if tipo == "inversión" y user_id in pendientes:
+            if tipo == "inversión" and user_id in pendientes:
                 pendientes.pop(user_id)
                 bot.reply_to(message, f"Transacción de inversión de {user_id} rechazada. ❌")
                 bot.send_message(user_id, f"Tu solicitud de inversión de {monto} USDT ha sido rechazada. ❌")
-            elif tipo == "retiro" y user_id in retiros_pendientes:
+            elif tipo == "retiro" and user_id in retiros_pendientes:
                 retiros_pendientes.pop(user_id)
                 bot.reply_to(message, f"Transacción de retiro de {user_id} rechazada. ❌")
                 bot.send_message(user_id, f"Tu solicitud de retiro de {monto} USDT ha sido rechazada. ❌")
@@ -236,7 +236,7 @@ def retroceder(message):
 
 def notify_admin(user_id, monto, tipo, direccion=None):
     admin_id = 7507991049
-    if tipo == "retiro" y direccion:
+    if tipo == "retiro" and direccion:
         bot.send_message(admin_id, f"Solicitud de {tipo} pendiente:\nUsuario: {user_id}\nMonto: {monto} USDT\nDirección: {direccion}\n\nUsa /aceptar {user_id} {tipo} o /rechazar {user_id} {tipo} para gestionar la solicitud.")
     else:
         bot.send_message(admin_id, f"Solicitud de {tipo} pendiente:\nUsuario: {user_id}\nMonto: {monto} USDT\n\nUsa /aceptar {user_id} {tipo} o /rechazar {user_id} {tipo} para gestionar la solicitud.")
