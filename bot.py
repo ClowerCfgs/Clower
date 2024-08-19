@@ -160,7 +160,7 @@ def handle_aceptar(message):
         try:
             user_id = int(message.text.split()[1])
             tipo = message.text.split()[2]
-            if tipo == "inversión" y user_id in pendientes:
+            if tipo == "inversión" and user_id in pendientes:
                 monto = pendientes.pop(user_id)
                 inversiones[user_id]['saldo'] += monto
                 inversiones[user_id]['pendiente'] = 0
